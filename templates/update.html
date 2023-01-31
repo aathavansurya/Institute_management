@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body bgcolor="grey">
+<form  method="post">
+    {% csrf_token %}
+    <h2 align="center"><u>Update Student Details</u></h2>
+    <table align="center">
+        <tr>
+            <td>NAME:</td>
+            <TD><input type="text" name="tbname" value="{{data.Student_name}}"></TD>
+        </tr>
+         <tr>
+            <td>AGE:</td>
+            <TD><input type="number" name="tbage"  value="{{data.Student_age}}"></TD>
+        </tr>
+         <tr>
+            <td>MOBILE:</td>
+            <TD><input type="number" name="tbmob"  value="{{data.Student_ph}}"></TD>
+        </tr>
+         <tr>
+            <td>CITY:</td>
+            <TD><select name="ddlcity">
+                <option selected>{{data.Student_city}}</option>
+                {% for i in City_name %}
+                   <option>{{i.city}}</option>
+                {% endfor %}
+            </select></TD>
+        </tr>
+        <tr>
+            <td>COURSE:</td>
+            <td><select name="ddlcourse">
+                <option selected>{{data.Student_course}}</option>
+
+                {% for i in Course_name %}
+                <option>{{i.course}}</option>
+                {% endfor %}
+            </select></td>
+        </tr>
+        <tr><td ><input type="submit" value="Update" style="background-color:black;color:white"></td></tr>
+    </table>
+
+
+</form>
+</body>
+</html>

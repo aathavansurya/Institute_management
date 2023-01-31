@@ -1,0 +1,42 @@
+{% extends 'navbar.html' %}
+
+{% block content %}
+<form action="reddata" method="post">
+    {% csrf_token %}
+    <h3 align="center"><u>Add Student Details</u></h3>
+    <table align="center" style="color:white">
+
+        <tr>
+            <td>NAME:</td>
+            <TD><input type="text" name="tbname"></TD>
+        </tr>
+         <tr>
+            <td>AGE:</td>
+            <TD><input type="number" name="tbage"></TD>
+        </tr>
+         <tr>
+            <td>MOBILE:</td>
+            <TD><input type="number" name="tbmob"></TD>
+        </tr>
+         <tr>
+            <td>CITY:</td>
+            <TD><select name="ddlcity">
+                {% for i in city_name %}
+                <option>{{i.city}}</option>
+                {% endfor %}
+            </select></TD>
+        </tr>
+        <tr>
+            <td>COURSE:</td>
+            <td><select name="ddlcourse">
+                {% for i in course_name %}
+                <option>{{i.course}}</option>
+                {% endfor %}
+            </select></td>
+        </tr>
+        <tr><td><input type="submit" value="AddStudent" style="background-color:black;color:white"></td></tr>
+    </table>
+
+
+</form>
+{% endblock %}
